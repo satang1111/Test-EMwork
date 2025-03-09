@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ระบบบันทึกข้อมูลสมาชิก</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h2>ระบบบันทึกข้อมูลสมาชิก</h2>
+        <form id="memberForm">
+            <label for="prefix">คำนำหน้าชื่อ:</label>
+            <input list="prefixList" id="prefix" name="prefix">
+            <datalist id="prefixList">
+                <option value="นาย">
+                <option value="นาง">
+                <option value="นางสาว">
+            </datalist>
+            <br>
+
+            <label for="firstName">ชื่อ:</label>
+            <input type="text" id="firstName" name="firstName" required>
+            <br>
+
+            <label for="lastName">นามสกุล:</label>
+            <input type="text" id="lastName" name="lastName" required>
+            <br>
+
+            <label for="dob">วันเดือนปีเกิด:</label>
+            <input type="date" id="dob" name="dob" required>
+            <br>
+
+            <label for="profileImage">รูปภาพโปรไฟล์:</label>
+            <input type="file" id="profileImage" name="profileImage" accept="image/*">
+            <br>
+
+            <label for="age">อายุ:</label>
+            <input type="text" id="age" name="age" readonly>
+            <br>
+
+            <button type="button" onclick="saveMemberData()">บันทึกข้อมูล</button>
+        </form>
+
+        <h3>ข้อมูลที่บันทึก</h3>
+        <table id="memberTable">
+            <thead>
+                <tr>
+                    <th>คำนำหน้าชื่อ</th>
+                    <th>ชื่อ</th>
+                    <th>นามสกุล</th>
+                    <th>วันเดือนปีเกิด</th>
+                    <th>อายุ</th>
+                    <th>รูปภาพโปรไฟล์</th>
+                    <th>วันเวลาที่ปรับปรุงข้อมูลล่าสุด</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- ข้อมูลที่บันทึกจะถูกแสดงที่นี่ -->
+            </tbody>
+        </table>
+    </div>
+
+    <script src="CST.js"></script>
+</body>
+</html>
