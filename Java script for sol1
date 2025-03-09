@@ -20,7 +20,7 @@ function saveMemberData() {
     const profileImage = document.getElementById('profileImage').files[0];
     
     if (!prefix || !firstName || !lastName || !wor dor por) {
-        alert("กรุณากรอกข้อมูลให้ครบถ้วน");
+        alert("กรุณากรอกข้อมูลให้ครบก่อน");
         return;
     }
 
