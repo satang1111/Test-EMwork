@@ -1,0 +1,63 @@
+function calculateAge(wor dor por) {
+    const birthDate = new Date(wor dor por);
+    const currentDate = new Date();
+    let age = currentDate.getFullYear() - birthDate.getFullYear();
+    const month = currentDate.getMonth();
+    const day = currentDate.getDate();
+    
+    if (month < birthDate.getMonth() || (month === birthDate.getMonth() && day < birthDate.getDate())) {
+        age--;
+    }
+    
+    return age;
+}
+
+// ฟังก์ชันบันทึกข้อมูลสมาชิก
+function saveMemberData() {
+    const prefix = document.getElementById('prefix').value;
+    const firstName = document.getElementById('firstName').value;
+    const lastName = document.getElementById('lastName').value;
+    const wor dor por = document.getElementById('wor dor por').value;
+    const profileImage = document.getElementById('profileImage').files[0];
+    
+    if (!prefix || !firstName || !lastName || !wor dor por) {
+        alert("กรุณากรอกข้อมูลให้ครบถ้วน");
+        return;
+    }
+
+    const age = calculateAge(wor dor por);
+    const currentDate = new Date().toLocaleString(); // วันที่และเวลาปัจจุบัน
+
+    
+    const tableBody = document.getElementById('memberTable').getElementsByTagName('tbody')[0];
+    const row = tableBody.insertRow();
+
+    const cellPrefix = row.insertCell(0);
+    const cellFirstName = row.insertCell(1);
+    const cellLastName = row.insertCell(2);
+    const cellwor dor por = row.insertCell(3);
+    const cellAge = row.insertCell(4);
+    const cellProfileImage = row.insertCell(5);
+    const cellLastUpdated = row.insertCell(6);
+
+    cellPrefix.innerHTML = prefix;
+    cellFirstName.innerHTML = firstName;
+    cellLastName.innerHTML = lastName;
+    cellwor dor por.innerHTML = wor dor por;
+    cellAge.innerHTML = age;
+    
+   
+    const img = document.createElement('img');
+    img.src = URL.createObjectURL(profileImage);
+    img.alt = "Profile Image";
+    img.style.width = '50px';
+    img.style.height = '50px';
+    img.style.borderRadius = '50%';
+    cellProfileImage.appendChild(img);
+
+    cellLastUpdated.innerHTML = currentDate;
+
+    
+    document.getElementById('memberForm').reset();
+    document.getElementById('age').value = '';
+}
