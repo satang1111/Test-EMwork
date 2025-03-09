@@ -12,7 +12,6 @@ function calculateAge(wor dor por) {
     return age;
 }
 
-// ฟังก์ชันบันทึกข้อมูลสมาชิก
 function saveMemberData() {
     const prefix = document.getElementById('prefix').value;
     const firstName = document.getElementById('firstName').value;
@@ -26,7 +25,7 @@ function saveMemberData() {
     }
 
     const age = calculateAge(wor dor por);
-    const currentDate = new Date().toLocaleString(); // วันที่และเวลาปัจจุบัน
+    const currentDate = new Date().toLocaleString();
 
     
     const tableBody = document.getElementById('memberTable').getElementsByTagName('tbody')[0];
